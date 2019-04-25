@@ -3,6 +3,12 @@
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
+                <div class="summary">
+                    {% if  article.featured_image %}
+                        <img src="{{ article.featured_image }}">
+                        <p><br /></p>
+                    {% endif %}
+                </div>
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
                 {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
                     <div class="well well-sm">
